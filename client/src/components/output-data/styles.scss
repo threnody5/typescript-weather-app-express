@@ -1,0 +1,23 @@
+.output-data-container {
+    text-align: center;
+
+    .output-data-description {
+        margin: 4rem 0 0 0;
+        font-size: 26px;
+        color: #351453;
+    }
+
+    .output-data-values {
+    margin: 1rem 0 0 4rem;
+    color: #351453;
+
+        div {
+            text-align: left;
+            margin: 0 0 0.5rem 0;
+        }
+
+        span {
+            text-align: right;
+        }
+    }
+}
