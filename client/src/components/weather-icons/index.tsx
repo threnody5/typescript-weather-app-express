@@ -3,7 +3,7 @@ import { IWeatherIcon } from '../../variables/interfaces';
 
 /**
  * Renders a weather icon based on the weather data received as a prop.
- * @param object - An object container weather data, including the main weather description.
+ * @param object - An object containing weather data, including the main weather description.
  * @returns An element that displays Icons for the weather, depending on the selected weather type.
  */
 const WeatherIcons = ({ weatherData }: IWeatherIcon) => {
