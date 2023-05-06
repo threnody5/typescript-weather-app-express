@@ -56,7 +56,7 @@ const EntryForm = () => {
         switch (err as string) {
           case '400':
             setErrorMessages(
-              'Unable to find city, please check the city spelling, verify the country code, and try again.'
+              'Unable to find city. Please check the city spelling, verify the country code, and try again.'
             );
             break;
           default:
