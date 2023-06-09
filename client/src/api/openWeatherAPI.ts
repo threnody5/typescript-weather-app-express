@@ -7,7 +7,7 @@ import axios from 'axios';
 const weatherAPI = async (): Promise<string> => {
   // Axios GET request to weather API endpoint
   return await axios
-    .get('http://localhost:9000/weatherAPI')
+    .get('http://77.243.85.205:9000/weatherAPI')
     .then((response) => {
       return response.data;
     })

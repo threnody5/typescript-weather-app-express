@@ -22,7 +22,6 @@ const findLocation = async (
     })
     .catch((err) => {
       console.error('Error: ', err);
-      // throw new Error(err);
     });
 };
 

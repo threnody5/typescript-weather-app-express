@@ -5,16 +5,17 @@ const app = express();
 
 /** Allow requests only from the front-end application. */
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'https://weather-check.tech',
 };
 
 /** Apply CORS middleware with options. */
-router.use(cors(corsOptions));
+app.use(cors(corsOptions));
+// router.use(cors(corsOptions));
 
 /** Get weather API */
 router.get('/', function (req, res) {
   // Add API key from openweathermap here as a string
-  res.send('c4b8c76df5bc9949fc6e2c820f59a8be');
+  res.send('');
 });
 
 app.use('/', router);
