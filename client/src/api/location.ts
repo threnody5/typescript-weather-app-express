@@ -13,9 +13,11 @@ const findLocation = async (
   country: string,
   weatherAPI: string
 ) => {
+  const VITE_FIND_LOCATION_BASE = import.meta.env.VITE_FIND_LOCATION_BASE;
+  const VITE_ID_NAME = import.meta.env.VITE_ID_NAME;
   return await axios
     .get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=${weatherAPI}`
+      `${VITE_FIND_LOCATION_BASE}${city},${country}&${VITE_ID_NAME}${weatherAPI}`
     )
     .then((response) => {
       return response.data;

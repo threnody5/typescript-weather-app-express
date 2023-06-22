@@ -9,9 +9,12 @@ import axios from 'axios';
  * If the latitude and longitude are incorrect, returns the error in a console log, and
  */
 const findWeather = async (lat: number, lon: number, weatherAPI: string) => {
+  const VITE_FIND_WEATHER_BASE = import.meta.env.VITE_FIND_WEATHER_BASE;
+  const VITE_ID_NAME = import.meta.env.VITE_ID_NAME;
+  const VITE_MEASUREMENT_UNITS = import.meta.env.VITE_MEASUREMENT_UNITS;
   return await axios
     .get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherAPI}&units=metric`
+      `${VITE_FIND_WEATHER_BASE}?lat=${lat}&lon=${lon}&${VITE_ID_NAME}${weatherAPI}&${VITE_MEASUREMENT_UNITS}`
     )
     .then((response) => {
       const weatherData = response.data;
