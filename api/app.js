@@ -9,6 +9,16 @@ const cors = require('cors');
 const weatherAPIRouter = require('./routes/weatherAPI');
 
 const app = express();
+const allowedOrigin = 'http://weather-check.tech';
+
+const corsOptions = {
+  origin: 'http://weather-check.tech',
+};
+
+// Formatting the date and time to ET
+const utcDate = new Date();
+const etOffset = -4 * 60;
+const etTime = new Date(utcDate.getTime() + etOffset * 60 * 1000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,14 +29,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-/** Allow requests only from the front-end application. */
-const corsOptions = {
-  origin: process.env.CORS_ORIGIN_URL,
-};
-
-/** Apply CORS middleware with options. */
 app.use(cors(corsOptions));
+
+// Checks if requesting URL is equal to the allowed origin, if so, moves on to next middleware.
+// If not, responds with a 403 status and displays Forbidden to the user.
+app.use((req, res, next) => {
+  const requestOrigin = req.headers.origin;
+  const ipv4Address = req.socket.remoteAddress.replace(/^.*:/, '');
+
+  console.log('Date: ', etTime);
+  console.log('IP Address: ', ipv4Address);
+
+  if (req.method === 'GET' && requestOrigin === allowedOrigin) {
+    next();
+  } else {
+    res.status(403).send('Forbidden');
+  }
+});
 
 app.use('/weatherAPI', weatherAPIRouter);
 

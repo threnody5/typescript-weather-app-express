@@ -8,7 +8,8 @@ const weatherAPI = async (): Promise<string> => {
   // Axios GET request to weather API endpoint
   return await axios
     // Set URL for back end Express server, to retrieve API key.
-    .get('')
+    .get(import.meta.env.VITE_WEATHER_API)
+    // .get('http://localhost:9000/weatherAPI')
     .then((response) => {
       return response.data;
     })
