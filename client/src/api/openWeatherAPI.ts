@@ -5,10 +5,10 @@ import axios from 'axios';
  * @returns {Promise<string>} A Promise that resolves with the weather data returned from the API, or rejects with an error.
  */
 const weatherAPI = async (): Promise<string> => {
-  const VITE_WEATHER_API = import.meta.env.VITE_WEATHER_API;
   // Axios GET request to weather API endpoint
   return await axios
-    .get(VITE_WEATHER_API)
+    // Set URL for back end Express server, to retrieve API key.
+    .get('')
     .then((response) => {
       return response.data;
     })
