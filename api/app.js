@@ -9,10 +9,11 @@ const cors = require('cors');
 const weatherAPIRouter = require('./routes/weatherAPI');
 
 const app = express();
-const allowedOrigin = 'http://weather-check.tech';
+const allowedOrigins =
+  'http://weather-check.tech' || 'https://weather-check.tech';
 
 const corsOptions = {
-  origin: 'http://weather-check.tech',
+  origin: 'http://weather-check.tech' || 'https://weather-check.tech',
 };
 
 // Formatting the date and time to ET
@@ -40,7 +41,7 @@ app.use((req, res, next) => {
   console.log('Date: ', etTime);
   console.log('IP Address: ', ipv4Address);
 
-  if (req.method === 'GET' && requestOrigin === allowedOrigin) {
+  if (req.method === 'GET' && requestOrigin === allowedOrigins) {
     next();
   } else {
     res.status(403).send('Forbidden');
