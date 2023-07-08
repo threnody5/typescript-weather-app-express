@@ -10,10 +10,15 @@ const weatherAPIRouter = require('./routes/weatherAPI');
 
 const app = express();
 const allowedOrigins =
-  'http://weather-check.tech' || 'https://weather-check.tech';
+  // 'http://weather-check.tech' ||
+  // 'https://weather-check.tech' ||
+  'http://localhost:5173';
 
 const corsOptions = {
-  origin: 'http://weather-check.tech' || 'https://weather-check.tech',
+  origin:
+    // 'http://weather-check.tech' ||
+    // 'https://weather-check.tech' ||
+    'http://localhost:5173',
 };
 
 // Formatting the date and time to ET
