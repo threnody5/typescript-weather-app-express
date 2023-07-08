@@ -1,23 +1,39 @@
 .output-data-container {
-    text-align: center;
+  text-align: center;
 
-    .output-data-description {
-        margin: 4rem 0 0 0;
-        font-size: 26px;
-        color: #351453;
-    }
+  .output-data-description {
+    font-size: 26px;
+    color: #351453;
+  }
+
+  @media (min-width: 815px) {
+    margin: 2rem 2rem 2rem 0;
 
     .output-data-values {
-    margin: 1rem 0 0 4rem;
+      margin: 1rem 0 0 4rem;
+    }
+  }
+
+  @media (max-width: 816px) {
+    margin: 0;
+
+    .output-data-values {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .output-data-values {
     color: #351453;
 
-        div {
-            text-align: left;
-            margin: 0 0 0.5rem 0;
-        }
-
-        span {
-            text-align: right;
-        }
+    div {
+      text-align: left;
+      margin: 0 0 0.5rem 0;
     }
+
+    span {
+      text-align: right;
+    }
+  }
 }

@@ -103,7 +103,9 @@ const EntryForm = () => {
             </div>
             <div className='error-container'>{errorMessages}</div>
           </div>
-          <div>{weather?.name && <OutputData weatherData={weather} />}</div>
+          <div className='weather-output-data-container'>
+            {weather?.name && <OutputData weatherData={weather} />}
+          </div>
         </div>
       </main>
     </Card>
